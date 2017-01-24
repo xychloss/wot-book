@@ -24,13 +24,13 @@ sensor.watch(function (err, value) { //#B
 function exit(err) {
   if (err) console.log('An error occurred: ' + err);
   sensor.unexport();
-  console.log('Bye, bye!')
+  console.log(' Bye, bye!')
   process.exit();
 }
 
 process.on('SIGINT', function () {
   clearInterval(interval);
-  console.log('Tschuss!');
+  console.log(' Tschuss!');
   process.exit();
 });
 // #A Initialize pin 17 in input mode, 'both' means we want to handle both rising and falling interrupt edges
