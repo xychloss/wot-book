@@ -1,7 +1,7 @@
 var onoff = require('onoff');
 
-var Gpio4 = onoff.Gpio4,
-  led = new Gpio4(4, 'out'),
+var Gpio = onoff.Gpio,
+  led = new Gpio(4, 'out'),
   interval;
 
 var Gpio = require('onoff').Gpio,
