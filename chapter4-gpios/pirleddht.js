@@ -13,19 +13,13 @@ var Gpio = require('onoff').Gpio,
 sensor.watch(function (err, value) { //#B
   if (err) exit(err);
  
+  var readout = sensorLib.read(); //#C
   led.write(value, function() { //#E
-    console.log(value ? 'there is someone!' : 'not anymore!');
-  
-  read();
+    console.log(value ? 'there is someone! Temperature: ' + readout.temperature.toFixed(2) + 'C, ' + 
+                'humidity: ' + readout.humidity.toFixed(2) + '%': 'not anymore!');
     
   });
 });
-
-function read() {
-  var readout = sensorLib.read(); //#C
-  console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' + //#D
-    'humidity: ' + readout.humidity.toFixed(2) + '%');
-};
 
 function exit(err) {
   if (err) console.log('An error occurred: ' + err);
